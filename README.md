@@ -32,11 +32,7 @@ pnpm build
 
 ## Published Books
 
-官网展示了 3 个由所念成册应用发布出的静态记忆书产物。首页只展示故事场景，点击后进入整屏预览页：
-
-- `/preview/birthday-light`：给小满的生日小书
-- `/preview/graduation-farewell`：给小满的三年
-- `/preview/ordinary-days-answer`：普通日子的答案
+官网展示了 3 个由所念成册应用发布出的静态记忆书产物。首页展示故事场景和封面原图，点击后直接打开发布成品 HTML：
 
 对应的发布产物静态地址：
 

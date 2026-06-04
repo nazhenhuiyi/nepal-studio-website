@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { publishedBooks } from "../bookData";
 
 export function BookShowcase() {
@@ -22,18 +21,24 @@ export function BookShowcase() {
           {publishedBooks.map((book) => (
             <article
               key={book.slug}
-              className="overflow-hidden rounded-md border border-white/14 bg-white/[0.06] shadow-[0_24px_70px_rgba(0,0,0,0.14)] transition hover:border-[#e0a84f]/70 hover:bg-white/[0.08]"
+              className="overflow-hidden rounded-md border border-white/14 bg-[#214f49] shadow-[0_24px_70px_rgba(0,0,0,0.14)] transition hover:border-[#e0a84f]/70 hover:bg-[#275a53]"
             >
-              <div className="flex h-[350px] items-center justify-center border-b border-white/10 bg-[#102d2a] px-5 py-5">
+              <a
+                href={book.bookPath}
+                aria-label={`打开${book.title}`}
+                className="group flex min-h-[430px] items-center justify-center border-b border-white/10 bg-[#efe3cd] px-6 py-8"
+              >
                 <Image
                   src={book.coverSrc}
                   alt={`${book.title}封面`}
-                  width={353}
-                  height={443}
-                  className="h-full w-auto rounded-sm object-contain shadow-[0_24px_55px_rgba(0,0,0,0.38)]"
+                  width={book.coverWidth}
+                  height={book.coverHeight}
+                  unoptimized
+                  sizes="(max-width: 1024px) 82vw, 28vw"
+                  className="max-h-[374px] w-auto rounded-sm object-contain shadow-[0_22px_50px_rgba(61,46,24,0.24)] transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_30px_65px_rgba(61,46,24,0.30)]"
                 />
-              </div>
-              <div className="flex min-h-[390px] flex-col justify-between p-6 sm:p-7">
+              </a>
+              <div className="flex min-h-[350px] flex-col justify-between p-6 sm:p-7">
                 <div>
                   <p className="text-sm font-semibold text-[#e0a84f]">{book.label}</p>
                   <h3 className="mt-4 text-3xl font-semibold">{book.title}</h3>
@@ -42,15 +47,12 @@ export function BookShowcase() {
                   </p>
                   <p className="mt-6 text-base leading-8 text-[#d6e2dc]">{book.summary}</p>
                 </div>
-                <Link
-                  href={book.previewPath}
+                <a
+                  href={book.bookPath}
                   className="mt-9 flex h-11 w-full items-center justify-center rounded-md bg-[#f7f3e9] px-5 text-sm font-semibold text-[#143d38] transition hover:bg-white"
                 >
                   全屏预览
-                </Link>
-                <p className="mt-4 text-center text-xs leading-5 text-[#a9c4bb]">
-                  打开后会进入整屏记忆书预览，可直接翻看发布成品。
-                </p>
+                </a>
               </div>
             </article>
           ))}
