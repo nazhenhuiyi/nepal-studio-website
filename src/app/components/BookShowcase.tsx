@@ -8,12 +8,13 @@ export function BookShowcase() {
         <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
           <div>
             <p className="mb-4 text-sm font-semibold text-[#e0a84f]">已发布成品</p>
-            <h2 className="font-serif text-4xl leading-tight md:text-6xl">
-              三个可以进入的故事。
+            <h2 className="font-serif text-3xl leading-tight sm:text-4xl md:text-6xl">
+              <span className="block">先看三本</span>
+              <span className="block">已经能打开的成品。</span>
             </h2>
           </div>
           <p className="max-w-2xl text-xl leading-9 text-[#d6e2dc]">
-            官网先把场景放在眼前，把书留给一个郑重的打开动作。生日、毕业、新婚，各自有一条能被送出的情绪线。
+            不用想象最终会长什么样。生日、毕业、新婚，三本发布书都直接从这里进入，看到完整的翻阅体验。
           </p>
         </div>
 
@@ -33,7 +34,6 @@ export function BookShowcase() {
                   alt={`${book.title}封面`}
                   width={book.coverWidth}
                   height={book.coverHeight}
-                  unoptimized
                   sizes="(max-width: 1024px) 82vw, 28vw"
                   className="max-h-[374px] w-auto rounded-sm object-contain shadow-[0_22px_50px_rgba(61,46,24,0.24)] transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_30px_65px_rgba(61,46,24,0.30)]"
                 />

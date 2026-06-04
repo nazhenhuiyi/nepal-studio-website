@@ -1,5 +1,8 @@
 import Image from "next/image";
 import { BookShowcase } from "./components/BookShowcase";
+import { publishedBooks } from "./bookData";
+
+const [birthdayBook, graduationBook, weddingBook] = publishedBooks;
 
 const reasons = [
   {
@@ -47,9 +50,36 @@ const keepsakes = ["照片", "聊天", "票根", "语音", "小票", "便签", "
 
 export default function Home() {
   return (
-    <main className="bg-[#f7f3e9] text-[#143d38]">
-      <section className="relative min-h-[92vh] overflow-hidden border-b border-[#dfd3bf] bg-[#f7f3e9]">
+    <main className="overflow-x-hidden bg-[#f7f3e9] text-[#143d38]">
+      <section className="relative min-h-[74svh] overflow-hidden border-b border-[#dfd3bf] bg-[#f7f3e9] xl:min-h-[86svh]">
         <div className="absolute inset-0 bg-[url('/brand/paper-grain.webp')] bg-cover bg-center opacity-70" />
+        <div className="pointer-events-none absolute inset-0 hidden xl:block" aria-hidden="true">
+          <Image
+            src={birthdayBook.coverSrc}
+            alt=""
+            width={birthdayBook.coverWidth}
+            height={birthdayBook.coverHeight}
+            sizes="(min-width: 1536px) 14vw, 16vw"
+            className="absolute left-[max(2rem,7vw)] top-[28%] w-[180px] rotate-[-7deg] rounded-sm object-contain shadow-[0_28px_70px_rgba(61,46,24,0.22)] 2xl:w-[230px]"
+          />
+          <Image
+            src={graduationBook.coverSrc}
+            alt=""
+            width={graduationBook.coverWidth}
+            height={graduationBook.coverHeight}
+            fetchPriority="high"
+            sizes="(min-width: 1536px) 14vw, 16vw"
+            className="absolute right-[max(2rem,8vw)] top-[18%] w-[170px] rotate-[6deg] rounded-sm object-contain shadow-[0_28px_70px_rgba(61,46,24,0.22)] 2xl:w-[225px]"
+          />
+          <Image
+            src={weddingBook.coverSrc}
+            alt=""
+            width={weddingBook.coverWidth}
+            height={weddingBook.coverHeight}
+            sizes="(min-width: 1536px) 14vw, 16vw"
+            className="absolute bottom-[4%] right-[max(7rem,20vw)] w-[150px] rotate-[-2deg] rounded-sm object-contain shadow-[0_28px_70px_rgba(61,46,24,0.22)] 2xl:w-[210px]"
+          />
+        </div>
 
         <header className="relative z-10 mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
           <a href="#" className="flex items-center gap-3">
@@ -65,14 +95,14 @@ export default function Home() {
             <span className="text-base font-semibold">所念成册</span>
           </a>
           <nav className="hidden items-center gap-8 text-sm text-[#365a56] md:flex">
+            <a href="#books" className="hover:text-[#d86a58]">
+              成品预览
+            </a>
             <a href="#seen" className="hover:text-[#d86a58]">
               被看见
             </a>
             <a href="#moments" className="hover:text-[#d86a58]">
               小事成册
-            </a>
-            <a href="#books" className="hover:text-[#d86a58]">
-              成品预览
             </a>
             <a href="#gift" className="hover:text-[#d86a58]">
               可送出
@@ -80,46 +110,47 @@ export default function Home() {
           </nav>
         </header>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-5 pb-10 pt-8 text-center sm:px-8 md:pt-12">
-          <p className="mb-5 text-sm font-semibold text-[#d86a58]">
-            让所念有归处
+        <div className="relative z-10 mx-auto flex min-h-[calc(74svh-5rem)] max-w-5xl flex-col items-center justify-center px-5 pb-10 pt-8 text-center sm:px-8 sm:pb-12 xl:min-h-[calc(86svh-5rem)] xl:pb-14">
+          <p className="mb-5 text-sm font-semibold text-[#c86655]">
+            真实素材成册的礼物官网
           </p>
           <h1 className="font-serif text-5xl leading-[1.04] text-[#143d38] sm:text-7xl md:text-8xl">
             所念成册
           </h1>
-          <p className="mx-auto mt-7 max-w-3xl font-serif text-3xl leading-tight text-[#143d38] sm:text-4xl md:text-5xl">
-            让所思、所念、所忆，慢慢成册。
+          <p className="mx-auto mt-6 max-w-3xl font-serif text-2xl leading-tight text-[#143d38] sm:text-4xl md:mt-7 md:text-5xl">
+            <span className="block">让所思、所念、所忆，</span>
+            <span className="block">慢慢成册。</span>
           </p>
-          <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-[#526965] md:text-xl">
-            把真实素材里的所念，整理成一本可送出的记忆书。不是编造回忆，是把一直记得的小事，慢慢放好。
+          <p className="mx-auto mt-6 max-w-[21rem] text-base leading-7 text-[#526965] sm:max-w-2xl sm:text-lg md:mt-7 md:text-xl md:leading-8">
+            <span className="block">把聊天、照片、票根和舍不得删的小事，</span>
+            <span className="block">整理成一本真的能打开、能送出的记忆书。</span>
           </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-7 flex flex-row flex-wrap items-center justify-center gap-3 md:mt-8">
+            <a
+              href="#books"
+              className="flex h-11 w-full max-w-[13rem] items-center justify-center rounded-md bg-[#143d38] px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#22534d] sm:w-auto"
+            >
+              先看三本成品
+            </a>
             <a
               href="#seen"
-              className="flex h-11 items-center justify-center rounded-md bg-[#143d38] px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#22534d]"
+              className="flex h-11 w-full max-w-[13rem] items-center justify-center rounded-md border border-[#bca987] px-5 text-sm font-semibold text-[#143d38] transition hover:border-[#d86a58] hover:text-[#c95f4f] sm:w-auto"
             >
               看见它为什么动人
             </a>
-            <a
-              href="#books"
-              className="flex h-11 items-center justify-center rounded-md border border-[#bca987] px-5 text-sm font-semibold text-[#143d38] transition hover:border-[#d86a58] hover:text-[#c95f4f]"
-            >
-              预览三本成品
-            </a>
           </div>
 
-          <div className="relative mx-auto mt-11 max-w-5xl overflow-hidden">
-            <Image
-              src="/brand/suonian-home-hero.png"
-              alt="照片、聊天和票根慢慢成册的品牌视觉"
-              width={1800}
-              height={1000}
-              priority
-              className="w-full rounded-md border border-[#dfd3bf] shadow-[0_24px_70px_rgba(61,46,24,0.12)]"
-            />
+          <div className="mt-5 flex max-w-xs flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs font-semibold text-[#365a56] sm:max-w-none sm:gap-x-4 sm:text-sm md:mt-7">
+            <span>已发布 3 本</span>
+            <span className="text-[#c86655]" aria-hidden="true">/</span>
+            <span>生日、毕业、新婚</span>
+            <span className="hidden text-[#c86655] sm:inline" aria-hidden="true">/</span>
+            <span className="basis-full text-center sm:basis-auto">打开就是完整书</span>
           </div>
         </div>
       </section>
+
+      <BookShowcase />
 
       <section id="seen" className="bg-[#143d38] px-5 py-18 text-white sm:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
@@ -200,8 +231,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <BookShowcase />
 
       <section id="gift" className="bg-[#fbf8ef] px-5 py-18 sm:px-8 md:py-24">
         <div className="mx-auto max-w-5xl text-center">
