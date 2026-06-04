@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BookShowcase } from "./components/BookShowcase";
 
 const reasons = [
   {
@@ -70,6 +71,9 @@ export default function Home() {
             <a href="#moments" className="hover:text-[#d86a58]">
               小事成册
             </a>
+            <a href="#books" className="hover:text-[#d86a58]">
+              成品预览
+            </a>
             <a href="#gift" className="hover:text-[#d86a58]">
               可送出
             </a>
@@ -97,10 +101,10 @@ export default function Home() {
               看见它为什么动人
             </a>
             <a
-              href="#moments"
+              href="#books"
               className="flex h-11 items-center justify-center rounded-md border border-[#bca987] px-5 text-sm font-semibold text-[#143d38] transition hover:border-[#d86a58] hover:text-[#c95f4f]"
             >
-              翻一翻那些小事
+              预览三本成品
             </a>
           </div>
 
@@ -196,6 +200,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <BookShowcase />
 
       <section id="gift" className="bg-[#fbf8ef] px-5 py-18 sm:px-8 md:py-24">
         <div className="mx-auto max-w-5xl text-center">
