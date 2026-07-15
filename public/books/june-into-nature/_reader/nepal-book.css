@@ -1,0 +1,193 @@
+:root {
+  --book-page-width: 720px;
+  --book-page-height: 960px;
+  --book-page-aspect-ratio: 3 / 4;
+  --book-spread-aspect-ratio: 3 / 2;
+  --book-spread-width: 1440px;
+  --book-scale: 1;
+  --book-rendered-width: 1440px;
+  --book-rendered-height: 960px;
+  --nepal-font-handwriting: "Xiaolai SC", "PingFang SC", cursive;
+  --paper: #f7f3e9;
+  --paper-soft: #fffdf6;
+  --paper-warm: #fff8e8;
+  --paper-muted: #e9dfce;
+  --ink: #143d38;
+  --seal: #d86a58;
+  --shadow: rgba(30, 25, 18, 0.18);
+  color: var(--ink);
+  font-family:
+    "Inter Variable",
+    var(--nepal-font-handwriting),
+    "PingFang SC",
+    system-ui,
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#book-root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.86), transparent 46%),
+    #e8ecee;
+}
+
+body::before {
+  position: fixed;
+  z-index: 0;
+  top: 46%;
+  left: 50%;
+  color: rgba(55, 101, 151, 0.24);
+  content: "向自然退一步";
+  filter: blur(7px);
+  font-family: var(--nepal-font-handwriting);
+  font-size: clamp(72px, 9vw, 150px);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.nepal-reader {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  padding: clamp(44px, 10vh, 128px) clamp(52px, 9vw, 170px);
+}
+
+@media (max-width: 640px) {
+  body::before {
+    top: 43%;
+    font-size: 17vw;
+    letter-spacing: 0.04em;
+  }
+}
+
+.nepal-reader__viewport {
+  position: relative;
+  width: var(--book-rendered-width);
+  height: var(--book-rendered-height);
+}
+
+.nepal-reader__stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--book-spread-width);
+  height: var(--book-page-height);
+  transform: scale(var(--book-scale));
+  transform-origin: top left;
+}
+
+.nepal-reader__book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  filter: drop-shadow(0 24px 44px var(--shadow));
+}
+
+.stf__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.stf__parent {
+  margin-inline: auto;
+}
+
+.stf__block {
+  overflow: visible;
+  perspective: 3200px;
+}
+
+.book-page {
+  position: absolute;
+  inset: 0;
+  display: none;
+  overflow: hidden;
+  border: 1px solid rgba(20, 61, 56, 0.16);
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow:
+    inset 0 0 70px rgba(91, 64, 32, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.74);
+  transform-origin: left center;
+  container-type: size;
+}
+
+.book-page::before {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    url("./textures/paper-fiber-mask.webp"),
+    repeating-linear-gradient(
+      0deg,
+      rgba(72, 52, 26, 0.07) 0 1px,
+      transparent 1px 13px
+    );
+  background-size: 360px 360px, 100% 100%;
+  mix-blend-mode: multiply;
+  opacity: 0.28;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 56px;
+  color: var(--ink);
+}
+
+.page h1,
+.page h2,
+.page p {
+  margin-top: 0;
+}
+
+.page h1 {
+  max-width: 12em;
+  font-family: var(--nepal-font-handwriting);
+  font-size: clamp(34px, 5cqh, 54px);
+  line-height: 1.12;
+}
+
+.page p {
+  font-size: 18px;
+  line-height: 1.72;
+}
+
+.preview-error {
+  display: grid;
+  width: min(560px, calc(100vw - 48px));
+  min-height: 220px;
+  place-items: center;
+  padding: 28px;
+  border: 1px solid rgba(216, 106, 88, 0.32);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #802819;
+  text-align: center;
+}

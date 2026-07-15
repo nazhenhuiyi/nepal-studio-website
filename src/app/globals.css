@@ -1,32 +1,87 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Xiaolai";
+  src:
+    url("/books/june-into-nature/_reader/XiaolaiSC-subset.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
 :root {
-  --background: #f4efe5;
-  --foreground: #173735;
-  --font-sans-body: "Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+  --paper: #f3eddf;
+  --paper-light: #faf6ec;
+  --ink: #143d38;
+  --ink-soft: #506a62;
+  --pine: #143d38;
+  --pine-deep: #0d302d;
+  --clay: #d86a58;
+  --sky: #b8d3dc;
+  --moss: #7f8a61;
+  --line: rgba(20, 61, 56, 0.16);
+  --font-sans: "Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
     Arial, sans-serif;
-  --font-serif-display: "Songti SC", "STSong", "Noto Serif CJK SC", Georgia,
-    serif;
+  --font-serif: "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif;
+  --font-hand: "Xiaolai", "Kaiti SC", "STKaiti", cursive;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans-body);
-  --font-serif: var(--font-serif-display);
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans-body);
-}
-
-::selection {
-  background: #d89d41;
-  color: #102f2d;
+* {
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+  background: var(--paper);
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+svg {
+  display: block;
+}
+
+::selection {
+  background: var(--clay);
+  color: #fffaf0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,0 +1,5 @@
+Nepal Studio Book Reader
+
+Source code: https://github.com/nazhenhuiyi/nepal-studio
+Source revision: 0.0.0
+License: GNU Affero General Public License v3.0

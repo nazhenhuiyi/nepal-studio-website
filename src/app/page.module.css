@@ -1,0 +1,533 @@
+.introPage {
+  display: grid;
+  min-height: 100svh;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+  background: #e8ecee;
+  color: var(--ink);
+}
+
+.introHeader {
+  display: flex;
+  width: min(calc(100% - 64px), 1480px);
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.brand > img {
+  width: 25px;
+  height: auto;
+  object-fit: contain;
+}
+
+.brand > span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand strong {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.brand small,
+.headerNote,
+.eyebrow {
+  color: var(--ink-soft);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.headerNote {
+  font-size: 10px;
+}
+
+.introHero {
+  position: relative;
+  display: grid;
+  width: min(calc(100% - 64px), 1280px);
+  min-height: min(760px, calc(100svh - 128px));
+  grid-template-columns: minmax(0, 1.08fr) minmax(430px, 0.72fr);
+  align-items: center;
+  gap: clamp(48px, 8vw, 130px);
+  margin: 0 auto;
+  padding: 48px 0 56px;
+}
+
+.introHero::before {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  color: rgba(77, 111, 153, 0.2);
+  content: "NEPAL STUDIO";
+  filter: blur(7px);
+  font-size: clamp(86px, 12vw, 190px);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 0.9;
+  pointer-events: none;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.introCopy,
+.introArtwork {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  margin: 0 0 23px;
+  color: var(--clay);
+  font-size: 10px;
+}
+
+.introCopy h1 {
+  max-width: 760px;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(52px, 5.6vw, 82px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.09;
+}
+
+.introCopy h1 span {
+  display: block;
+}
+
+.introLead {
+  margin: 30px 0 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.openBookButton {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  gap: 12px;
+  margin-top: 36px;
+  padding: 0 23px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--pine);
+  color: #fffaf0;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(20, 61, 56, 0.16);
+  transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.openBookButton:hover {
+  background: #20534c;
+  box-shadow: 0 18px 36px rgba(20, 61, 56, 0.22);
+  transform: translateY(-2px);
+}
+
+.openBookButton svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.introArtwork {
+  min-height: 560px;
+}
+
+.introImageBack,
+.introImageFront {
+  position: absolute;
+  overflow: hidden;
+  border: 7px solid rgba(250, 246, 236, 0.92);
+  box-shadow: 0 28px 64px rgba(31, 52, 43, 0.18);
+}
+
+.introImageBack {
+  top: 78px;
+  right: 0;
+  width: 58%;
+  aspect-ratio: 3 / 4;
+  transform: rotate(7deg);
+}
+
+.introImageFront {
+  z-index: 2;
+  top: 0;
+  left: 4%;
+  width: 62%;
+  aspect-ratio: 3 / 4;
+  transform: rotate(-4deg);
+}
+
+.introImageBack img,
+.introImageFront img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.introArtwork > p {
+  position: absolute;
+  z-index: 4;
+  right: 4%;
+  bottom: 14%;
+  margin: 0;
+  padding: 13px 16px;
+  border: 1px solid var(--line);
+  background: rgba(250, 246, 236, 0.92);
+  box-shadow: 0 12px 28px rgba(20, 61, 56, 0.12);
+  font-family: var(--font-hand);
+  font-size: 16px;
+  transform: rotate(2deg);
+}
+
+.introFooter {
+  display: flex;
+  width: min(calc(100% - 64px), 1480px);
+  min-height: 70px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: #e8ecee;
+  animation: overlayIn 450ms ease both;
+}
+
+.bookDialog {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100dvh;
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #e8ecee;
+  animation: dialogIn 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.closeButton,
+.navigationButton {
+  border: 0;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.closeButton {
+  position: absolute;
+  z-index: 6;
+  top: 18px;
+  right: 22px;
+  display: inline-flex;
+  width: 42px;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 11px;
+  font-weight: 700;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.closeButton:hover {
+  background: rgba(20, 61, 56, 0.08);
+  color: var(--ink);
+}
+
+.closeButton:focus-visible {
+  outline: 1px solid rgba(20, 61, 56, 0.32);
+  outline-offset: 3px;
+}
+
+.closeButton svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.7;
+}
+
+.closeButton span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.readerArea {
+  position: relative;
+  min-height: 0;
+  background: #e8ecee;
+}
+
+.readerFrame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.readerError {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(145, 50, 32, 0.22);
+  border-radius: 8px;
+  background: #fff4ee;
+  color: #8a3427;
+  font-size: 12px;
+  transform: translateX(-50%);
+}
+
+.bookControls {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  pointer-events: none;
+}
+
+.navigationButton {
+  position: relative;
+  display: inline-flex;
+  width: 42px;
+  min-height: 88px;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: 11px;
+  font-weight: 500;
+  pointer-events: auto;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.navigationButton:hover:not(:disabled) {
+  background: transparent;
+  color: var(--clay);
+  transform: scale(1.08);
+}
+
+.navigationButton:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+.navigationButton svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.05;
+}
+
+.navigationButton span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.arrowRight {
+  transform: rotate(180deg);
+}
+
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialogIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .introHero {
+    grid-template-columns: 1fr;
+  }
+
+  .introCopy {
+    max-width: 730px;
+  }
+
+  .introArtwork {
+    width: min(100%, 620px);
+    margin: 0 auto;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .introHeader,
+  .introHero,
+  .introFooter {
+    width: calc(100% - 36px);
+  }
+
+  .introHeader {
+    min-height: 74px;
+  }
+
+  .headerNote {
+    display: none;
+  }
+
+  .introHero {
+    min-height: auto;
+    gap: 45px;
+    padding: 70px 0 64px;
+  }
+
+  .introHero::before {
+    top: 8%;
+    font-size: 24vw;
+    filter: blur(5px);
+  }
+
+  .introCopy h1 {
+    font-size: clamp(43px, 12vw, 56px);
+    line-height: 1.12;
+  }
+
+  .introLead {
+    font-size: 14px;
+  }
+
+  .introLead br {
+    display: none;
+  }
+
+  .openBookButton {
+    width: 100%;
+    justify-content: center;
+    padding: 0 18px;
+  }
+
+  .introArtwork {
+    min-height: 430px;
+  }
+
+  .introArtwork > p {
+    right: 0;
+    bottom: 10%;
+    font-size: 14px;
+  }
+
+  .introFooter {
+    min-height: 100px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+  }
+
+  .overlay {
+    padding: 0;
+  }
+
+  .bookDialog {
+    height: 100dvh;
+    border-radius: 0;
+  }
+
+  .closeButton {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    min-height: 40px;
+    padding: 0;
+  }
+
+  .closeButton span {
+    display: none;
+  }
+
+  .closeButton svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .bookControls {
+    inset: 0;
+    padding: 0 5px;
+  }
+
+  .navigationButton {
+    width: 34px;
+    min-height: 70px;
+  }
+
+  .navigationButton svg {
+    width: 24px;
+    height: 24px;
+  }
+}
