@@ -55,7 +55,6 @@ function Brand() {
       />
       <span>
         <strong>所念成册</strong>
-        <small>Nepal Studio 2.0</small>
       </span>
     </span>
   );
@@ -179,7 +178,6 @@ export function BookExperience() {
 
         <section className={styles.introHero}>
           <div className={styles.introCopy}>
-            <p className={styles.eyebrow}>NEPAL STUDIO 2.0</p>
             <h1>
               把真实的片段，
               <span>做成可以翻开的作品。</span>
@@ -223,7 +221,7 @@ export function BookExperience() {
         </section>
 
         <footer className={styles.introFooter}>
-          <span>所念成册 · Nepal Studio 2.0</span>
+          <span>所念成册</span>
           <span>HTML BOOK / IMAGE CANVAS / LOCAL FIRST</span>
         </footer>
       </main>

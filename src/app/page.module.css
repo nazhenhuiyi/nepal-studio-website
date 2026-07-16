@@ -42,9 +42,7 @@
   letter-spacing: 0.08em;
 }
 
-.brand small,
-.headerNote,
-.eyebrow {
+.headerNote {
   color: var(--ink-soft);
   font-size: 8px;
   font-weight: 700;
@@ -89,12 +87,6 @@
 .introArtwork {
   position: relative;
   z-index: 1;
-}
-
-.eyebrow {
-  margin: 0 0 23px;
-  color: var(--clay);
-  font-size: 10px;
 }
 
 .introCopy h1 {
