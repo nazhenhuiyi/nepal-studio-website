@@ -73,11 +73,12 @@
   top: 12%;
   left: 50%;
   color: rgba(77, 111, 153, 0.2);
-  content: "NEPAL STUDIO";
+  content: "所念成册";
   filter: blur(7px);
-  font-size: clamp(86px, 12vw, 190px);
+  font-family: var(--font-serif);
+  font-size: clamp(112px, 17vw, 260px);
   font-weight: 500;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.08em;
   line-height: 0.9;
   pointer-events: none;
   transform: translateX(-50%);
