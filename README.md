@@ -1,6 +1,7 @@
-# 所念成册 Website
+# 所念成册 / Nepal Studio 2.0 Website
 
 所念成册对外官网项目，使用 Next.js App Router、TypeScript、Tailwind CSS 和 pnpm 搭建。
+网站介绍 Nepal Studio 2.0 的两种作品形态：可翻阅的 HTML 书与可继续编排的图片画布。
 
 ## Development
 
@@ -24,20 +25,19 @@ pnpm build
 ## Brand Direction
 
 - 主品牌：所念成册
-- 副标题：记忆书创作台
+- 副标题：AI 私人纪念作品创作台
 - 主 slogan：让所思、所念、所忆，慢慢成册。
 - 短版：让所念有归处。
-- 核心：把真实素材里的所念，整理成一本可送出的记忆书。
-- 对外文案少讲技术和流程，优先讲真实素材、认真整理、被看见和可送出的心意。
+- 核心：把真实素材整理成可翻阅的 HTML 书，或可以继续编排的图片作品。
+- 记忆真实性：AI 可以整理、提问、建议和生成制作辅助物，但不能替用户编造私人经历。
+- 对外文案少讲技术参数，优先讲真实素材、认真整理、作品可继续加工和本地归属。
 
-## Published Books
+## Featured Book
 
-官网展示了 3 个由所念成册应用发布出的静态记忆书产物。首页展示故事场景和封面原图，点击后直接打开发布成品 HTML：
+官网当前只展示 1 个由所念成册应用发布出的静态书籍产物。进入首页时书籍会以弹层直接打开，只提供关闭、上一页和下一页；关闭后显示 Nepal Studio 2.0 的简短介绍，并可再次翻开：
 
 对应的发布产物静态地址：
 
-- `/books/birthday-light/`：给小满的生日小书
-- `/books/graduation-farewell/`：给小满的三年
-- `/books/ordinary-days-answer/`：普通日子的答案
+- `/books/june-into-nature/`：六月，向自然退一步
 
-这些产物来自本机 `~/.nepal-studio/projects/` 下的三个项目，并通过应用自己的 `publishProjectPackage` 管线导出。
+该目录是应用通过 `publishProjectPackage` 管线导出的完整发布包，包含阅读器、页面数据、插画、字体和相应授权文件。
