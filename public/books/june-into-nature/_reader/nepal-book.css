@@ -38,45 +38,17 @@ body,
 }
 
 body {
-  position: relative;
   background:
-    radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.86), transparent 46%),
-    #e8ecee;
-}
-
-body::before {
-  position: fixed;
-  z-index: 0;
-  top: 46%;
-  left: 50%;
-  color: rgba(55, 101, 151, 0.24);
-  content: "向自然退一步";
-  filter: blur(7px);
-  font-family: var(--nepal-font-handwriting);
-  font-size: clamp(72px, 9vw, 150px);
-  letter-spacing: 0.08em;
-  line-height: 1;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  white-space: nowrap;
+    radial-gradient(circle at 22% 18%, rgba(216, 106, 88, 0.11), transparent 24%),
+    linear-gradient(135deg, #f9f5eb 0%, #ebe4d4 100%);
 }
 
 .nepal-reader {
-  position: relative;
-  z-index: 1;
   display: grid;
   width: 100%;
   height: 100%;
   place-items: center;
-  padding: clamp(44px, 10vh, 128px) clamp(52px, 9vw, 170px);
-}
-
-@media (max-width: 640px) {
-  body::before {
-    top: 43%;
-    font-size: 17vw;
-    letter-spacing: 0.04em;
-  }
+  padding: 36px;
 }
 
 .nepal-reader__viewport {
